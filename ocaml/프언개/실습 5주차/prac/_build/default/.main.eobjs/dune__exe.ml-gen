@@ -1,0 +1,6 @@
+(** @canonical Dune__exe.ListStack *)
+module ListStack = Dune__exe__ListStack
+
+
+(** @canonical Dune__exe.Main *)
+module Main = Dune__exe__Main
