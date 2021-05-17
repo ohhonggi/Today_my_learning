@@ -1,0 +1,83 @@
+-- alter user c##termproject default tablespace users quota unlimited on users;
+-- 01950 -> 해당 유저에게 제한없이 공간 할당
+--alter table 테이블 modify 컬럼명 타입 -> 타입 수정
+--delete from 테이블 where 조건 -> 특정 행(data) 삭제
+
+--insert into customer
+--values (0,'nancy','nancy0','nancy@naver.com');
+--values (1,'alex','alex1','alex@naver.com');
+--values (2,'john','john2','john@naver.com');
+--values (3,'robert','robert3','robert@naver.com');
+--values (4,'david','david4','david@naver.com');
+--values (5,'paul','paul5','paul@naver.com');
+--values (6,'mary','mary6','mary@naver.com');
+--values (7,'linda','linda7','linda@naver.com');
+--values (8,'susan','susan8','susan@naver.com');
+--values (9,'sarah','sarah9','sarah@naver.com');
+
+--insert into authors
+--values ('송병선',10)
+--values ('스탕달',11)
+--values ('진형준',11)
+--values ('김만중',12)
+--values ('김석희',13)
+--values ('토마스 만',14)
+--values ('홍성광',14)
+--values ('알베르카뮈',15)
+--values ('엘리엇',16)
+--values ('황동규',16)
+--values ('진형준',17)
+--values ('셰익스피어',18)
+--values ('김연경',19)
+--values ('베케트',20)
+--values ('세르반테스',21)
+--values ('박철',21)
+--values ('최승필',22)
+--values ('찰스디킨스',23)
+--values ('제인오스틴',24)
+--values ('브론테',25)
+--values ('조현욱',26)
+--values ('이청준',27)
+--values ('발자크',28)
+--values ('박영근',28)
+--values ('칼 세이건',29)
+
+--insert into ebook
+--values (10,0,'픽션들','민음사','2011',0,sysdate-10,sysdate)
+--values (11,1,'적과 흑','살림출판사','2017',1,sysdate-30,sysdate-10)
+--values (12,2,'구운몽','민음사','2012',0,sysdate-30,sysdate-20)
+--values (13,3,'모비딕','작가정신','2010',0,sysdate-30,sysdate-20)
+--values (14,4,'마의 산','을유문화사','2008',0,sysdate-40,sysdate-30)
+--values (15,null,'이방인 페스트','민음사','2020',null,null,null)
+--values (16,null,'황무지','민음사','2020',null,null,null)
+--values (17,null,'신곡','살림출판사','2020',null,null,null)
+--values (18,null,'햄릿','창비','2020',null,null,null)
+--values (19,null,'죄와 벌','민음사','2012',null,null,null)
+--values (20,null,'고도를 기다리며','민음사','2019',null,null,null)
+--values (21,null,'돈키호테1','시공사','2018',null,null,null)
+--values (22,null,'공부머리 독서법','책구루','2018',null,null,null)
+--values (23,null,'위대한 유산','동서문화사','2016',null,null,null)
+--values (24,null,'오만과 편견','문학동네','2017',null,null,null)
+--values (25,null,'폭풍의 언덕','문학동네','2016',null,null,null)
+--values (26,null,'사피엔스','김영사','2016',null,null,null)
+--values (27,null,'당신들의 천국','문학과지성사','2012',null,null,null)
+--values (28,null,'고리오 영감','아름드리미디어','2005',null,null,null)
+--values (29,null,'코스모스','사이언스북스','2009',null,null,null)
+
+--insert into reserve
+--values (10,5,sysdate-9)
+--values (10,6,sysdate-8)
+--values (10,7,sysdate-7)
+--values (11,8,sysdate-25)
+--values (11,9,sysdate-24)
+--values (11,0,sysdate-23)
+
+--insert into previousrental
+--values (21, sysdate-100,sysdate-90,1)
+--values (21, sysdate-50,sysdate-40,2)
+--values (22, sysdate-100,sysdate-90,3)
+--values (22, sysdate-80,sysdate-70,4)
+--values (22, sysdate-60,sysdate-50,5)
+
+
+
