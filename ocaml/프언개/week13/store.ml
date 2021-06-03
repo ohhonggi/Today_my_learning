@@ -7,12 +7,8 @@ and t = (string * value) list
 
 let empty = []
 
-let rec insert x n s =
-    match s with
-    | (parm, num) :: storeList ->
-        if (parm = x) then (parm,n)::storeList
-        else (parm, num)::(insert x n storeList)
-    | [] -> (x,n)::s
+let insert x n s =
+    (x,n)::s
 
 let rec find x s =
   match s with

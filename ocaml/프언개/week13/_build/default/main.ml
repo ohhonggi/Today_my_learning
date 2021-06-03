@@ -18,7 +18,7 @@ let _ =
     ; "x = 3; y = 4;"
     ; "x = 3; if (x < 3) { y = 1; } else { y = 99; }"
     ; "x = 3; if (x > 3) { x = 1; } else { x = 99; }"
-    ; "x = 3; if (true) {x = 4;} else {x = 5;} y = x"
+(*    ; "x = 3; if (true) {x = 4;} else {x = 5;} y = x"*)
 (*    ; "x = 3; z=0; if(true) { x = 4; z=x; } else { x = 5;} y = x"*)
     ]
   in
