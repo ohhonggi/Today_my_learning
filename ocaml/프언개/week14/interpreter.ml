@@ -88,7 +88,7 @@ let rec interp_s (stmt : Ast.stmt) ((env, mem) : Env.t * Mem.t) : Env.t * Mem.t 
         | BoolV (false) -> (env, mem)
         | _ -> failwith (Format.asprintf "Not a boolean %a" Ast.pp_e expr)
 
-
+ 
 (* practice & homework *)
 let interp (p : Ast.program) : Env.t * Mem.t =
     match p with
