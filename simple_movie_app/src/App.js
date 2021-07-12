@@ -12,6 +12,7 @@ function App() {
   var getMovies = async() => {
     const {data: {data :{movies}}} 
     = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json");
+    // = await axios.get("https://ab05cf3e-683f-4d62-90d5-1315f4ce63a6.mock.pstmn.io");
     setMovies(movies);
     setIsLoading(false)
   }
