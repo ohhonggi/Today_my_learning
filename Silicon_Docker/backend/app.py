@@ -9,14 +9,12 @@ import boto3
 import celery.states as states
 import mysql.connector
 
-access_id = 'AKIAVJ6H6FLESCGV4BOO'
-access_secret = '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'
 
-client = boto3.client('s3',
-                      aws_access_key_id=access_id,
-                      aws_secret_access_key=access_secret,
-                      region_name='ap-northeast-2'  # 서울 위치
-                      )
+# client = boto3.client('s3',
+#                       aws_access_key_id=access_id,
+#                       aws_secret_access_key=access_secret,
+#                       region_name='ap-northeast-2'  # 서울 위치
+#                       )
 
 Upload_URL = "./video"
 # Flask 인스턴스 생성
