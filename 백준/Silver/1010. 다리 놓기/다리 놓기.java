@@ -1,11 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 public class Main {
-    static BigInteger[] dp;
+    static int[][] dp;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,20 +12,29 @@ public class Main {
         StringTokenizer st;
 
         int testCase = Integer.parseInt(br.readLine());
+        dp = new int[31][31];
 
-        for (int i = 0; i < testCase; i++) {
+        for (int i = 0; i <= 30; i++) {
+            dp[0][i] = dp[i][i] = 1;
+        }
+
+        while (testCase-- > 0) {
             st = new StringTokenizer(br.readLine());
             int leftSite = Integer.parseInt(st.nextToken());
             int rightSite = Integer.parseInt(st.nextToken());
-            dp = new BigInteger[rightSite + 1];
-            dp[0] = dp[1] = new BigInteger("1");
-            for (int j = 2; j <= rightSite;  j++) {
-                dp[j] = dp[j - 1].multiply(new BigInteger(String.valueOf(j)));
-            }
-            BigInteger result = dp[rightSite].divide(dp[leftSite].multiply(dp[rightSite-leftSite]));
+            int result = combination(leftSite, rightSite);
             sb.append(result + "\n");
         }
         System.out.println(sb);
+    }
+
+    static int combination(int left, int right) {
+        if (dp[left][right] != 0) {
+            return dp[left][right];
+        }
+
+        return dp[left][right] = combination(left - 1, right - 1) +
+            combination(left, right - 1);
     }
 
 }
