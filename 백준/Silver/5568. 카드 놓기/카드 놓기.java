@@ -33,7 +33,6 @@ public class Main {
             if (!visited[i]) {
                 visited[i] = true;
                 cal(visited, depth+1, card+numList[i]);
-                cal(visited, depth+1, card+numList[i]);
                 visited[i] = false;
             }
         }
