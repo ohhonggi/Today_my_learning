@@ -1,87 +1,65 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) throws NumberFormatException, IOException {
+    static int n;
+    static boolean[] everyNum = new boolean[1000];
+    /*
+     * 숫자야구, 질문했던 정보들을 토대로 가능한 수의 개수를 계산 (숫자의 자리 수는 겹칠 수 없음!)
+     * strike or ball -> 3개의 숫자 중 정답에 해당하는 수
+     * 하나의 질문마다 가능한 모든 수를 계산하고, 질문이 추가될 때 마다 소거하기
+     *
+     * 해답
+     *  - 질문했던 수를 기준으로 해답을 찾는 방법 -> 초기 생각했던 방안으로 너무 복잡함
+     *  - 가능한 모든 수와 질문했던 수를 비교하여 strike와 ball 개수가 동일한 지 여부를 초점으로 변경
+     */
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        n = Integer.parseInt(br.readLine());
+        int result = 0;
+        Arrays.fill(everyNum, true);
 
-        int num = Integer.parseInt(br.readLine());
-
-        int arr[] = new int[num];
-        int strike[] = new int[num];
-        int ball[] = new int[num];
-        int count = 0;
-
-        for(int i=0; i<num; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            arr[i] = Integer.parseInt(st.nextToken());
-            strike[i] = Integer.parseInt(st.nextToken());
-            ball[i] = Integer.parseInt(st.nextToken());
+        for (int i = 123; i <= 987; i++) {
+            String[] split = String.valueOf(i).split("");
+            if (split[0].equals(split[1]) || split[1].equals(split[2]) || split[0].equals(split[2]))
+                everyNum[i] = false;
+            else if (split[0].equals("0") || split[1].equals("0") || split[2].equals("0"))
+                everyNum[i] = false;
         }
 
-        for(int i=123; i<=987; i++) {
-            int st_t =0;
-            int b_t = 0;
-            int check = 0;
+        for (int i = 0; i < n; i++) {
+            String[] input = br.readLine().split(" ");
+            calNum(input[0], Integer.parseInt(input[1]), Integer.parseInt(input[2]));
+        }
 
-            if(i/100 == i/10%10)continue;
-            else if(i/10%10 == i%10) continue;
-            else if(i/100 == i%10) continue;
+        for (int i = 123; i <= 987; i++)
+            if (everyNum[i])
+                result++;
 
-            if(i/10%10 == 0) continue;
-            if(i%10 == 0) continue;
+        System.out.println(result);
+    }
 
-            for(int j=0; j<strike.length; j++) {
-                st_t = 0;
-                b_t = 0;
-                if(arr[j]/100 == i/100) {
-                    st_t++;
-                }
-                else {
-                    if(arr[j]/10%10 ==i/100) {
-                        b_t++;
-                    }
-                    else if(arr[j]%10 == i/100) {
-                        b_t++;
-                    }
-                }
-                if(arr[j]/10%10== i/10%10) {
-                    st_t++;
-                }
-                else {
-                    if(arr[j]/100 ==i/10%10) {
-                        b_t++;
-                    }
-                    else if(arr[j]%10 == i/10%10) {
-                        b_t++;
-                    }
-                }
-                if(arr[j]%10 == i%10) {
-                    st_t++;
-                }
+    public static void calNum(String nums, int strike, int ball) {
+        for (int i = 123; i <= 987; i++) {
+            if (everyNum[i]) {
+                int s = 0, b =0;
+                String stringi = String.valueOf(i);
 
-                else {
-                    if(arr[j]/100 ==i%10) {
-                        b_t++;
+                for (int j = 0; j < 3; j++)
+                    if (stringi.contains(nums.charAt(j)+"")){
+                        if (stringi.charAt(j) == nums.charAt(j))
+                            s++;
+                        else
+                            b++;
                     }
-                    else if(arr[j]/10%10 == i%10) {
-                        b_t++;
-                    }
-                }
 
-                if(strike[j]!=st_t || ball[j]!=b_t) {
-                    break;
-                }
-                check++;
-                if(check == num) {
-                    count++;
-                }
+                if (strike == s && ball == b){
+                    everyNum[i] = true;
+                } else
+                    everyNum[i] =false;
             }
         }
-        bw.write(String.valueOf(count));
-        bw.flush();
-        br.close();
-        bw.close();
     }
 }
