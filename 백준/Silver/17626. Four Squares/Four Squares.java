@@ -1,33 +1,24 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int N = Integer.parseInt(br.readLine());
+    /*
+        자연수 n이 주어질 때, 최소 개수의 제곱수 합 구하기
+        0.5 sec (1 <= n <= 50,000)
+     */
+    static int [] dp;
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        dp = new int[n+1];
+        dp[1] = 1;
 
-        int[] squares = new int[N + 1];
-        squares[1] = 1;
-
-        int min = 0;
-        for (int i = 2; i <= N; i++) {
-            min = Integer.MAX_VALUE;
-
-            for (int j = 1; j * j <= i; j++) {
-                int temp = i - j * j;
-                min = Math.min(min, squares[temp]);
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i-1] + 1;
+            for (int j = 1; j*j<=i; j++){
+                dp[i] = Math.min(dp[i] ,dp[i-j*j] + 1);
             }
-
-            squares[i] = min + 1;
         }
-
-        bw.write(squares[N] + "\n");
-        bw.flush();
-        bw.close();
-        br.close();
+        System.out.println(dp[n]);
     }
 }
