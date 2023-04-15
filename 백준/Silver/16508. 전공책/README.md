@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 16576 KB, 시간: 2772 ms
+메모리: 16504 KB, 시간: 128 ms
 
 ### 분류
 
@@ -14,7 +14,7 @@
 
 <p>곧 졸업을 앞둔 민호는 대학교 생활 동안 구매만 해놓고 한 번도 펴보지 않은 전공책에 먼지가 쌓여 있는 것을 보고는, 이 책들을 어떻게 처리해야 할지 고민 중이다. 열심히 고민한 끝에 민호는 결국 전공책을 모두 버리기로 마음먹었다. 하지만 그냥 버리기엔 심심한 민호는 전공책 제목에 있는 글자들을 오려서 단어 만들기 놀이를 하려고 한다. 단어 만들기 놀이는 아래 예시와 같다.</p>
 
-<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/93ada309-dbba-4cee-831f-5e977b42e526/-/preview/" style="height: 288px; width: 256px;"><img alt="" src="https://upload.acmicpc.net/22501cf0-f7ad-40b7-a94f-aeda4f64fefb/-/preview/" style="height: 288px; width: 256px;"><img alt="" src="" style="height: 288px; width: 256px;"><img alt="" src="" style="height: 288px; width: 256px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/93ada309-dbba-4cee-831f-5e977b42e526/-/preview/" style="height: 288px; width: 256px;"><img alt="" src="https://upload.acmicpc.net/22501cf0-f7ad-40b7-a94f-aeda4f64fefb/-/preview/" style="height: 288px; width: 256px;"><img alt="" src="https://upload.acmicpc.net/99d2c4ba-0c42-4333-a8d8-6a0600f94119/-/preview/" style="height: 288px; width: 256px;"><img alt="" src="https://upload.acmicpc.net/bd7a7845-0cce-427b-a000-cdde0af7d960/-/preview/" style="height: 288px; width: 256px;"></p>
 
 <ul>
 	<li>1번 책 : <code>COMPUTERARCHITECTURE</code> (35,000원)</li>
