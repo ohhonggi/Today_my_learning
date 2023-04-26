@@ -46,7 +46,7 @@ class Solution {
         else if (isPrime[number] == 1){
             return true;
         } else {
-            for (int i = 2; i<number; i++){
+            for (int i = 2; i<=(int) Math.sqrt(number); i++){
                 if (number % i == 0){
                     isPrime[number] = -1;
                     return false;
