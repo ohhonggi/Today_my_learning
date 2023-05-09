@@ -1,0 +1,9 @@
+-- 코드를 입력하세요
+SELECT b.*
+from ( select name, count(animal_id) as 'COUNT'
+      from animal_ins
+      where name not like ''
+      group by name
+      order by name
+) as b
+where b.COUNT > 1
