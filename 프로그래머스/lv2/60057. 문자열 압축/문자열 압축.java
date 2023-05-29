@@ -14,7 +14,7 @@ class Solution {
         int answer = Integer.MAX_VALUE;
         sL = s.length();
         
-        for (int i = 1; i <= sL; i++){
+        for (int i = 1; i <= sL/2+1; i++){
             answer = Math.min(answer, compressString(s, i));
         }
         return answer;
@@ -22,41 +22,46 @@ class Solution {
     
     public int compressString(String s, int digit){
         int index = 0;
+        
         while (index + digit <= s.length()){
             String pattern = s.substring(index, index + digit);
             String[] removedStringInfo = removeDuplicatePattern(s, pattern, index);
+            
+            // pattern이 연속되는 부분이 없는 경우
             if (s.equals(removedStringInfo[0]))
                 index += digit;
             else{
                 s = removedStringInfo[0];
+                // 다음 pattern이 시작되는 index 계산
                 index += digit + removedStringInfo[1].length();
             }
         }
-        // System.out.println(s);
         return s.length();
     }
     
+    // pattern과 일치하는 연속된 문자열의 개수를 계산 및 압축
     public String[] removeDuplicatePattern(String s, String pattern, int index){
         int patternCount = 1;
         int digit = pattern.length();
-        // System.out.println("pattern: "+pattern);
         
-        for (int i = index; i + 2*digit <= s.length(); ){
-            String comparedPattern = s.substring(i + digit, i + 2*digit);
-                
+        while (index + 2*digit <= s.length()){
+            String comparedPattern = s.substring(index + digit, index + 2*digit);
+            
+            // 연속되는 문자열이 존재하는 경우
             if (pattern.equals(comparedPattern)){
-                s = s.substring(0, i) + s.substring(i+digit);
+                // 해당 문자열 제외
+                s = s.substring(0, index) + s.substring(index+digit);
                 patternCount++;
             }else{
                 break;
             }
         }
         
+        // 연속되는 문자열이 존재하지 않는 경우
         if (patternCount == 1)
             return new String[]{s, String.valueOf(patternCount)};
         else{
-            // System.out.println("removedPattern :" + s.substring(0, index) + patternCount + 
-            //                    s.substring(index, s.length()));
+            // pattern 앞에 연속된 문자열 개수를 붙여서 반환
             return new String[]{s.substring(0, index) + patternCount + 
                                s.substring(index, s.length()), String.valueOf(patternCount)};
         }
