@@ -40,7 +40,7 @@ class Solution {
                 
                 if (c[0] == rl-1 && c[1] == cl-1){
                     min = Math.min(min, c[2]);
-                    continue;
+                    break;
                 }
                 
                 isVisited[c[0]][c[1]] = true;
@@ -57,33 +57,7 @@ class Solution {
         return min;
     }
     
-//     public int dfs(int rowI, int columnI, int depth){
-//         if (isVisited[rowI][columnI])
-//             return -1;
-//         else if (rowI == rl-1 && columnI == cl-1){
-//             min = Math.min(depth+1, min);
-//             return min;
-//         }
-        
-//         // System.out.println("row: "+ rowI + " column: "+ columnI);
-//         // System.out.println("depth: "+ depth);
-        
-//         int result = -1;
-//         isVisited[rowI][columnI] = true;
-//         for (int[] move : drdc){
-            
-//             if (!checkIndex(rowI+ move[0], columnI+ move[1]))
-//                 continue;
-            
-//             result = dfs(rowI + move[0], columnI + move[1], depth+1);
-//             if (result != -1){
-//                 min = Math.min(min, result);
-//             }
-//         }
-//         isVisited[rowI][columnI] = false;
-        
-//         return min;
-//     }
+
     
     public boolean checkIndex(int rowI, int columnI){
         if (rowI < 0 || rowI >=rl || columnI < 0 || columnI >= cl)
