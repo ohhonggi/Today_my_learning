@@ -19,7 +19,7 @@ class Solution {
             }
         }
         
-        int result = bfs(0,0,0);
+        int result = bfs(0,0,1);
         
         if (min != Integer.MAX_VALUE)
             return result;
@@ -28,7 +28,7 @@ class Solution {
     }
 
     public int bfs(int rowI, int columnI, int depth){
-        child.add(new int[]{0,0,1});
+        child.add(new int[]{rowI, columnI, depth});
         
         while(!child.isEmpty()){
             int[] c = child.remove();
