@@ -19,7 +19,7 @@ class Solution {
             }
         }
         
-        int result = bfs(0,0,1);
+        int result = bfs(0,0);
         
         if (min != Integer.MAX_VALUE)
             return result;
@@ -27,16 +27,14 @@ class Solution {
             return -1;
     }
 
-    public int bfs(int rowI, int columnI, int depth){
-        child.add(new int[]{rowI, columnI, depth});
+    public int bfs(int rowI, int columnI){
+        child.add(new int[]{rowI, columnI, 1});
         
         while(!child.isEmpty()){
             int[] c = child.remove();
             if (isVisited[c[0]][c[1]]){
                 continue;
             }else {
-                // System.out.println("row: "+ c[0] + " column: "+ c[1]);
-                // System.out.println("depth: "+ c[2]);
                 
                 if (c[0] == rl-1 && c[1] == cl-1){
                     min = Math.min(min, c[2]);
