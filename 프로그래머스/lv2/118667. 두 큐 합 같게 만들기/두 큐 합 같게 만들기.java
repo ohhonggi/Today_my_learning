@@ -39,12 +39,12 @@ class Solution {
             if (count == qL*4){
                 return -1;
             } else {
-                if (q1s > q2s || q2.isEmpty()){
+                if (q1s > q2s){
                     Long e = q1.poll();
                     q2.add(e);
                     q1s -= e;
                     q2s += e;
-                } else if (q1s < q2s || q1.isEmpty()){
+                } else if (q1s < q2s){
                     Long e = q2.poll();
                     q1.add(e);
                     q2s -= e;
@@ -56,5 +56,4 @@ class Solution {
             }
         }
     }
-        
 }
