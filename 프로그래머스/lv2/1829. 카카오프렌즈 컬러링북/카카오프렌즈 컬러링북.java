@@ -13,14 +13,14 @@ class Solution {
         colL = n;
         max = 0;
         visited = new boolean[m][n];
-        p = new int[m][n];
+        p = picture;
         answer = new int[2];
         
-        for (int i = 0; i<rowL; i++){
-            for (int j = 0; j<colL; j++){
-                p[i][j] = picture[i][j];
-            }
-        }
+        // for (int i = 0; i<rowL; i++){
+        //     for (int j = 0; j<colL; j++){
+        //         p[i][j] = picture[i][j];
+        //     }
+        // }
         
         
         for (int i = 0; i<rowL; i++){
