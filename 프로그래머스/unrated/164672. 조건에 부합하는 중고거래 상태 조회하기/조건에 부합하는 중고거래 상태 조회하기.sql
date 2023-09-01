@@ -1,0 +1,12 @@
+-- 코드를 입력하세요
+SELECT U.BOARD_ID, U.WRITER_ID, U.TITLE, U.PRICE, 
+(case 
+    when U.STATUS = 'DONE'
+        THEN '거래완료'
+    when U.STATUS = 'SALE'
+        THEN '판매중'
+    when U.STATUS = 'RESERVED'
+        THEN '예약중' END) AS 'STATUS'
+FROM USED_GOODS_BOARD AS U
+WHERE U.CREATED_DATE = '2022-10-05%'
+ORDER BY U.BOARD_ID DESC
