@@ -1,19 +1,13 @@
 import java.util.HashMap;
 import java.util.LinkedList;
 class Solution {
-    /*
-        1. 전체 기록에 대한 아이디별 닉네임 총 결과 저장
-        2. 전체 기록을 다시 순환하며, 기록결과 출력
-        
-    */
-    
     HashMap<String, String> nickname;
     public String[] solution(String[] record) {
         LinkedList<String> print = new LinkedList();
         nickname = new HashMap(record.length);
         for (String r : record){
             String[] input = r.split(" ");
-            if (!input[0].equals("Leave")){
+            if (input[0].charAt(0) != 'L'){
                 nickname.put(input[1], input[2]);
             }
         }
@@ -21,9 +15,9 @@ class Solution {
         for (String r : record){
             String[] input = r.split(" ");
             String name = nickname.get(input[1]);
-            if (input[0].equals("Enter")){
+            if (input[0].charAt(0) == 'E'){
                 print.add(join(name));
-            } else if (input[0].equals("Leave")){
+            } else if (input[0].charAt(0) == 'L'){
                 print.add(exit(name));
             }
         }
