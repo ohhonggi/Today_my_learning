@@ -1,22 +1,22 @@
 import java.util.Stack;
 class Solution
 {
+    /*
+        stack을 사용한 풀이
+    */
     public int solution(String s)
     {
         Stack<Character> stack = new Stack();
-        char[] chars = s.toCharArray();
-        int index = 0;
-        stack.push(chars[index++]);
-        while (index < chars.length){
+        
+        for (char c : s.toCharArray()){
             if (stack.isEmpty()){
-                stack.push(chars[index++]);
+                stack.push(c);
             } else {
-                if (stack.peek() == chars[index]){
+                if (stack.peek() == c){
                     stack.pop();
                 } else {
-                    stack.push(chars[index]);
+                    stack.push(c);
                 }
-                index++;
             }
         }
         
