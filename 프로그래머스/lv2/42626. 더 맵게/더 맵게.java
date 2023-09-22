@@ -15,15 +15,10 @@ class Solution {
             Arrays.stream(scoville).boxed().collect(Collectors.toList()));
         
         while (queue.peek() < K && queue.size() > 1){
-            Integer f1 = queue.remove();
-            Integer f2 = queue.remove();
-            queue.add(f1 + (f2*2));
+            queue.add(queue.remove() + (queue.remove()*2));
             answer++;
         }
-        if (queue.peek() < K){
-            return -1;
-        } else{
-            return answer;
-        }
+        
+        return queue.peek() < K ? -1 : answer;
     }
 }
