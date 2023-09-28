@@ -4,19 +4,16 @@ import java.util.Map.Entry;
 import java.util.LinkedList;
 class Solution {
     /*
-        2 <= g <= 20 / 2 <= n <= 10 / 2 <= m <= 10
-        새로 만들 메뉴의 개수 2~m에 대해, 모든 손님이 주문한 메뉴n에 대해 m개를 뽑아 만들 수 있는 조합의 수 계산
-        (10C2 + 10C3 + 10C4 + .. 10C10) * 20
-        
         1. 각 손님이 만들 수 있는 메뉴 조합을 course의 최대값(2~m개의 메뉴)까지 구해 map에 저장
         2. 만든 조합 map에 대해, 각 새로운 매뉴 개수에 따른 최대 주문 개수에 해당하는 메뉴 조합 구하기
+        3. 메뉴 조합을 사전 순 정렬하여 반환
     */
     HashMap<String, Integer> map;
     LinkedList<String> resultS;
     int[] resultN;
     char[] courses;
     public String[] solution(String[] orders, int[] course) {
-        map = new HashMap((int) Math.pow(10.0, (double) course.length/2));
+        map = new HashMap((int) Math.pow(10.0, course.length));
         resultS = new LinkedList();
         resultN = new int[course[course.length-1]-1];
 
