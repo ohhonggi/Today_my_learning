@@ -1,8 +1,5 @@
 import java.util.Arrays;
 class Solution {
-    /*
-        i번째 글자만 target과 같은 
-    */
     String[] wd;
     int cnt, wl, wdl;
     boolean[] visited;
@@ -11,8 +8,6 @@ class Solution {
         wl = begin.length();
         wdl = words.length;
         visited = new boolean[wdl];
-        
-        Arrays.sort(words);
         wd = words;
 
         bfs(begin.toCharArray(), target.toCharArray(), 0);
