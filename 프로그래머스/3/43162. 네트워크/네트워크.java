@@ -11,7 +11,6 @@ class Solution {
         
         for (int i = 0; i<n; i++){
             if (!visited[i]){
-                visited[i] = true;
                 dfs(i);
                 answer++;
             }
@@ -21,9 +20,9 @@ class Solution {
     }
     
     public void dfs(int cp){
+        visited[cp] = true;
         for (int i = 0; i<cl; i++){
             if (!visited[i] && cps[cp][i] == 1){
-                visited[i] = true;
                 dfs(i);
             }
         }
